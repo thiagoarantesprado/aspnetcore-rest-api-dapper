@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC.NCF.Business", "LC.NCF.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC.NCF.Data", "LC.NCF.Data\LC.NCF.Data.csproj", "{35C19C23-60AC-43BD-A109-FD0DAEDA3812}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LC.NCF.Repositories", "LC.NCF.Repositories\LC.NCF.Repositories.csproj", "{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{35C19C23-60AC-43BD-A109-FD0DAEDA3812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35C19C23-60AC-43BD-A109-FD0DAEDA3812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35C19C23-60AC-43BD-A109-FD0DAEDA3812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

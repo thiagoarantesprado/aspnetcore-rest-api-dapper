@@ -15,5 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LC.NCF.Business\LC.NCF.Business.csproj" />
+    <ProjectReference Include="..\LC.NCF.Repositories\LC.NCF.Repositories.csproj" />
   </ItemGroup>
 </Project>

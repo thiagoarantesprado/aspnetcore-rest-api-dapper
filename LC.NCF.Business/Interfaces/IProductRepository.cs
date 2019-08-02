@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using LC.NCF.Data.Models;
 
-namespace LC.NCF.Data.Repository
+namespace LC.NCF.Business.Interfaces
 {
     public interface IProductRepository
     {

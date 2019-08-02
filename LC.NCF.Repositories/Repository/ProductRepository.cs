@@ -5,8 +5,9 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using LC.NCF.Data.Models;
 using Dapper;
+using LC.NCF.Business.Interfaces;
 
-namespace LC.NCF.Data.Repository
+namespace LC.NCF.Repositories.Repository
 {
     public class ProductRepository : IProductRepository
     {

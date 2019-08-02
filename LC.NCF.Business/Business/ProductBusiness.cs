@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using LC.NCF.Business.Contracts;
-using LC.NCF.Data.Repository;
+using LC.NCF.Business.Interfaces;
 using LC.NCF.Data.Models;
 
 namespace LC.NCF.Business.Business
