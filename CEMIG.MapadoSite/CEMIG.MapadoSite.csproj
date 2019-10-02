@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.3.1" />
+    <PackageReference Include="bootstrap-treeview" Version="1.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Views\CoreUI\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\LC.NCF.Business\LC.NCF.Business.csproj" />
+    <ProjectReference Include="..\LC.NCF.Repositories\LC.NCF.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

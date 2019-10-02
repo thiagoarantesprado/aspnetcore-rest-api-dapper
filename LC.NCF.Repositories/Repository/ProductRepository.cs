@@ -17,7 +17,7 @@ namespace LC.NCF.Repositories.Repository
         public ProductRepository()
         {
             // TODO: It will be refactored...
-            _connectionString = "Server=DESKTOP-85SV1TI\\SQLEXPRESS;Database=RESTfulSampleDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+            _connectionString = "Data Source=sqlazurebhs.database.windows.net;Initial Catalog=RESTfulSampleDb;User ID=tprado;Password=Bhs@2019;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
         public async Task<Product> GetAsync(long id)
@@ -55,6 +55,19 @@ namespace LC.NCF.Repositories.Repository
             }
         }
 
+        public async Task<IEnumerable<Product>> GetAlllAsync()
+        {
+            //TODO: Paging...
+            using (IDbConnection dbConnection = _connection)
+            {
+                string sqlProcedure = @"sp_products_get_all";
+
+                var product = await dbConnection.QueryAsync<Product>(sqlProcedure, commandType: CommandType.StoredProcedure);
+
+                return product;
+            }
+        }
+
         public async Task AddAsync(Product product)
         {
             using (IDbConnection dbConnection = _connection)
@@ -72,7 +85,7 @@ namespace LC.NCF.Repositories.Repository
                                 @Description,
                                 @Price,
                                 @CreatedDate)";
-
+                
                 await dbConnection.ExecuteAsync(query, product);
             }
         }

@@ -1,0 +1,32 @@
+﻿@model LC.NCF.Data.Models.Menu
+
+<p>
+    @Html.DisplayNameFor(model => model.Id):
+    @Html.DisplayFor(model => model.Id)
+</p>
+<p>
+    @Html.DisplayNameFor(model => model.Nome):
+    @Html.DisplayFor(model => model.Nome)
+</p>
+<p>
+    @Html.DisplayNameFor(model => model.Link):
+    @Html.DisplayFor(model => model.Link)
+</p>
+<div>
+    <button class="ui-state-default ui-corner-all" id="btnSave">Salvar</button>
+    <button class="ui-state-default ui-corner-all" id="btnClose">Cancelar</button>
+</div>
+
+<script>
+    $("#btnSave").click(function () {
+        //$.post("/home/edit", $("#formEdit").serialize()
+        //  ).done(function () {
+        //    // $("#divClientes").load("/clientes/list");
+        //      alert('lista');
+        // });
+        $("#myModal").dialog("close");
+    });
+    $("#btnClose").click(function () {
+        $("#myModal").dialog("close");
+    });
+</script>

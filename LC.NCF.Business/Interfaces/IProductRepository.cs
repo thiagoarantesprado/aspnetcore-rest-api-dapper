@@ -9,6 +9,7 @@ namespace LC.NCF.Business.Interfaces
     {
         Task<Product> GetAsync(long id);
         Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product>> GetAlllAsync();
         Task AddAsync(Product product);
     }
 }

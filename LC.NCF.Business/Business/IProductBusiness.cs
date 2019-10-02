@@ -10,6 +10,7 @@ namespace LC.NCF.Business.Business
     {
         Task<ProductResponse> GetAsync(long id);
         Task<ProductResponse> GetAllAsync();
+        Task<ProductResponse> GetAlllAsync();
         Task AddAsync(ProductRequest productRequest);
     }
 }

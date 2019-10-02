@@ -36,6 +36,9 @@ namespace aspnetcore_rest_api_with_dapper
             services.AddMvc();
 
             // Add application services.
+            services.AddTransient<IMenuBusiness, MenuBusiness>();
+            services.AddTransient<IMenuRepository, MenuRepository>();
+
             services.AddTransient<IProductBusiness, ProductBusiness>();
             services.AddTransient<IProductRepository, ProductRepository>();
 

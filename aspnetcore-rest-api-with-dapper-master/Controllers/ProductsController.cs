@@ -33,6 +33,13 @@ namespace aspnetcore_rest_api_with_dapper.Controllers
             return await _productBusiness.GetAllAsync();
         }
 
+        [Route("GetAlll")]
+        [HttpGet]
+        public async Task<ProductResponse> GetAlll()
+        {
+            return await _productBusiness.GetAlllAsync();
+        }
+
         // POST api/v1/products
         [ProducesResponseType(201)]
         [HttpPost]

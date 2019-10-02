@@ -54,6 +54,25 @@ namespace LC.NCF.Business.Business
             return productResponse;
         }
 
+        public async Task<ProductResponse> GetAlllAsync()
+        {
+            //TODO: Paging...
+
+            ProductResponse productResponse = new ProductResponse();
+            IEnumerable<Product> products = await _productRepository.GetAlllAsync();
+
+            if (products.ToList().Count == 0)
+            {
+                productResponse.Message = "Products not found.";
+            }
+            else
+            {
+                productResponse.Products.AddRange(products);
+            }
+
+            return productResponse;
+        }
+
         public async Task AddAsync(ProductRequest productRequest)
         {
             Product product = new Product(){

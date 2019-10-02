@@ -1,0 +1,40 @@
+﻿@model CEMIG.MapadoSite.Models.SeededCategoriesModel
+
+<div>
+    <ul class="nav nav-list">
+
+        @if (Model.Categories.Where(s => s.Parent_ID == Model.Seed).Any())
+        {
+            <li>
+                <label class="tree-toggle nav-header"><i class="fa fa-arrow-right fa-lg"></i></label>
+                <ul class="nav nav-list tree">
+                    @foreach (var node in Model.Categories)
+                    {
+                        if (node.Parent_ID == Model.Seed)
+                        {
+                            CEMIG.MapadoSite.Models.SeededCategoriesModel inner = new CEMIG.MapadoSite.Models.SeededCategoriesModel { Seed = node.ID, Categories = Model.Categories };
+
+                            @if (!string.IsNullOrEmpty(node.Link))
+                            {
+                                <li class="nav tree" data-toggle="collapse">
+                                    <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>
+                                    <button type="button" class="IdInfo btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID" data-toggle="modal" data-target="#myModal">
+                                        <i class="cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar
+                                    </button>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="tree-toggle nav-header" data-toggle="collapse">
+                                    <a>@node.Name</a>
+                                </li>
+                            }
+
+                            @Html.Partial("_TreeCategoriesPartial", inner)
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
