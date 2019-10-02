@@ -17,7 +17,7 @@
                                 {
                                     <li class="nav tree">
                                         <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>
-                                        <button type="button" class="btn btn-ghost-success" data-id="@node.ID" data-toggle="modal" data-target="#myModal">
+                                        <button type="button" class="btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID" >
                                             <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
                                         </button>
                                     </li>
