@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Dynamic;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,6 +8,7 @@ using CEMIG.MapadoSite.Models;
 using LC.NCF.Business.Business;
 using LC.NCF.Business.Contracts;
 using LC.NCF.Data.Models;
+using System;
 
 namespace CEMIG.MapadoSite.Controllers
 {
@@ -22,7 +23,7 @@ namespace CEMIG.MapadoSite.Controllers
 
         public IActionResult Index()
         {
-            MenuResponse menus =  _menuBusiness.GetAllMenu();
+            MenuResponse menus = _menuBusiness.GetAllMenu();
 
             IList<CategoryModel> categories = new List<CategoryModel>();
 
@@ -32,7 +33,37 @@ namespace CEMIG.MapadoSite.Controllers
             }
 
             Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories };
+
+            //dynamic objMultiModel = new ExpandoObject();
+            //objMultiModel.listaMenu = model;
+            //objMultiModel.listaMenu = _menuBusiness.GetMenuAvaliacao(69, "tprado");
+
+            //var multiModel = new Tuple<List<Menu>, List<MenuAvaliacao>>(getMenus(), getAvaliacoes());
+
             return View(model);
+        }
+
+        public List<Menu> getMenus()
+        {
+            MenuResponse menus = _menuBusiness.GetAllMenu();
+
+            IList<CategoryModel> categories = new List<CategoryModel>();
+
+            foreach (var menu in menus.Menus)
+            {
+                categories.Add(new CategoryModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
+            }
+
+            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories };
+
+            return (List<Menu>)model.Categories;
+        }
+
+        public List<MenuAvaliacao> getAvaliacoes()
+        {
+            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
+
+            return avaliacoes;
         }
 
         public IActionResult Edit(int idLink)

@@ -1,5 +1,4 @@
-﻿@using LC.NCF.Data.Models
-@model LC.NCF.Data.Models.Menu
+﻿@model LC.NCF.Data.Models.Menu
 @{
     ViewBag.Title = "MenuModel";
 }
@@ -13,14 +12,20 @@
             <div class="card-body collapse show" id="collapseExample">
                 <form class="form-horizontal">
                     <div class="row">
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-2">
                             <label for="Id">@Html.DisplayNameFor(model => model.Id)</label>
                             <input type="text" readonly="readonly" class="form-control" id="Id" placeholder="" value="@Html.DisplayFor(model => model.Id)">
                         </div>
 
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-6">
                             <label for="Nome">@Html.DisplayNameFor(model => model.Nome)</label>
                             <input type="text" readonly="readonly" class="form-control" id="Nome" placeholder="" value="@Html.DisplayFor(model => model.Nome)">
+                        </div>
+
+
+                        <div class="form-group col-sm-4">
+                            <label for="Nome">Status Link</label>
+                            <input type="text" style="background-color: @Html.DisplayFor(model => model.Cor)" readonly="readonly" class="form-control" id="Nome" placeholder="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -72,15 +77,83 @@
                             </div>
                         }
                     </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="button" class="btn btn-secondary">Cancelar</button>
+                    <div class="form-actions" style="text-align: right">
+                        <div class="form-group" style="text-align: left">
+                            <label style="color:red">Caso o link não funcione, provavelmente o mesmo foi excluido do site. Procure o setor de comunicação.</label>
+                        </div>
+                         
+                        <div class="form-group" style="text-align: right">
+                            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal">
+                                <i class="fa cui-pencil icons"></i>&nbsp;Incluir Avaliação
+                            </button>
+                            <button type="button" onclick="window.history.go(-1); return false;" class="btn btn-outline-dark">Voltar</button>
+                        </div>
                     </div>
-                    <br />
-                    <label style="color:red">Caso o link não funcione, provavelmente o mesmo foi excluido do site. Procure o setor de comunicação.</label>
                 </form>
             </div>
         </div>
     </div>
     <!--/.col-->
 </div>
+
+@section Modals {    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Incluir avaliação</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="" method="post">
+                                    <div class="form-group row">
+                                        <div class="col-md-10">
+                                            As informações dessa página estão corretas?
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-10">
+                                            O conteúdo dessa página é regulatório?
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-10">
+                                           Esta página deve ser mantida?
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-12 col-form-label" for="textarea-input">Apresente o(s) motivo(s) que justifique a permanência da página no novo Portal. (***)</label>
+                                        <div class="col-md-12">
+                                            <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <label style="color:red">(***) Pelos critérios técnicos aplicados, as páginas destacadas em vermelho poderão não compor o novo portal, portanto, aquelas que deverão ser realmente mantidas, independentemente dos critérios aplicados, apresente o(s) motivo(s) que justifique a permanência dessa página.</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fecha</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+}

@@ -53,6 +53,13 @@ namespace LC.NCF.Business.Business
             return menuAvaliacao;
         }
 
+        public List<MenuAvaliacao> GetAllMenuAvaliacao()
+        {
+            List<MenuAvaliacao> menuAvaliacoes = _menuRepository.GetAllMenuAvaliacao();
+
+            return menuAvaliacoes;
+        }
+
         public async Task<MenuResponse> GetAllMenuAsync()
         {
             MenuResponse menuResponse = new MenuResponse();

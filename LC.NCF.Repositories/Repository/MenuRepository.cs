@@ -98,6 +98,19 @@ namespace LC.NCF.Repositories.Repository
             }
         }
 
+        public List<MenuAvaliacao> GetAllMenuAvaliacao()
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"SELECT *
+                                FROM [dbo].[MenuAvaliacao]";
+
+                var menu = dbConnection.Query<MenuAvaliacao>(query);
+
+                return menu.ToList();
+            }
+        }
+
         public IEnumerable<Menu> GetAllMenu()
         {
             //TODO: Paging...
