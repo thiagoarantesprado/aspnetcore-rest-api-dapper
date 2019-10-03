@@ -10,6 +10,7 @@ namespace LC.NCF.Data.Models
         public int IdMenu { get; set; }
         public bool InfoCorreta { get; set; }
         public bool ePaginaRegulatoria { get; set; }
+        public bool PaginaSeraMantida { get; set; }
         public string Justificativa { get; set; }
         public string Usuario { get; set; }
         public DateTime DataCriacao { get; set; }

@@ -87,7 +87,8 @@ namespace CEMIG.MapadoSite.Controllers
             if (ModelState.IsValid)
             {
                 _menuBusiness.AddMenuAvaliacao(avaliacao);
-                return RedirectToAction("Index");
+
+                return RedirectToAction("MenuDetail", new { Id = avaliacao.IdMenu });
             }
             else
                 return View();
@@ -113,8 +114,14 @@ namespace CEMIG.MapadoSite.Controllers
 
         public IActionResult MenuDetail(int id)
         {
-            var menu = _menuBusiness.GetMenu(id);
-            return View(menu);
+            if (id > 0)
+            {
+                var menu = _menuBusiness.GetMenu(id);
+                return View(menu);
+            }
+            else
+                return RedirectToAction("Index"); 
+
         }
 
         public IActionResult Privacy()

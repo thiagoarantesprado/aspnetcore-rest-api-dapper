@@ -1,0 +1,40 @@
+﻿@model LC.NCF.Data.Models.MenuAvaliacao
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <input asp-for="IdMenu" hidden="hidden" class="form-control" value="@ViewData["IdMenu"]" />
+            <input asp-for="Usuario" hidden="hidden" class="form-control" value="@User.Identity.Name" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-check-input" asp-for="InfoCorreta" /> As informações dessa página estão corretas?
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-check-input" asp-for="ePaginaRegulatoria" /> O conteúdo dessa página é regulatório?
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input class="form-check-input" asp-for="PaginaSeraMantida" /> Esta página deve ser mantida?
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-12 col-form-label" asp-for="Justificativa" for="Justificativa">Apresente o(s) motivo(s) que justifique a permanência da página no novo Portal. (***)</label>
+                <div class="col-md-12">
+                    <textarea id="textarea-input" asp-for="Justificativa" name="Justificativa" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+

@@ -109,29 +109,50 @@
                                 <h2>Incluir avaliação</h2>
                             </div>
                             <div class="card-body">
-                                <form action="" method="post">
+                                
+                                @{Html.RenderPartial("_CriarComentario", new LC.NCF.Data.Models.MenuAvaliacao(),
+                                new ViewDataDictionary(ViewData)
+                                {
+                                    { "IdMenu", Model.Id }
+                                });}
+                                @*<form action="" method="post">
                                     <div class="form-group row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-8">
                                             As informações dessa página estão corretas?
                                         </div>
-                                        <div class="col-md-2">
-                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="InfoCorreta">
+                                            <label class="form-check-label" for="inline-radio1">Sim</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="InfoCorreta">
+                                            <label class="form-check-label" for="inline-radio2">Não</label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-8">
                                             O conteúdo dessa página é regulatório?
                                         </div>
-                                        <div class="col-md-2">
-                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="ePaginaRegulatoria">
+                                            <label class="form-check-label" for="inline-radio1">Sim</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="ePaginaRegulatoria">
+                                            <label class="form-check-label" for="inline-radio2">Não</label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-10">
-                                           Esta página deve ser mantida?
+                                        <div class="col-md-8">
+                                            Esta página deve ser mantida?
                                         </div>
-                                        <div class="col-md-2">
-                                            <input class="form-check-input" type="checkbox" id="InfoCorreta" value="">
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="PaginaSeraMantida">
+                                            <label class="form-check-label" for="inline-radio1">Sim</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="PaginaSeraMantida">
+                                            <label class="form-check-label" for="inline-radio2">Não</label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -140,15 +161,10 @@
                                             <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
                                         </div>
                                     </div>
-                                </form>
+                                </form>*@
                             </div>
-                            <label style="color:red">(***) Pelos critérios técnicos aplicados, as páginas destacadas em vermelho poderão não compor o novo portal, portanto, aquelas que deverão ser realmente mantidas, independentemente dos critérios aplicados, apresente o(s) motivo(s) que justifique a permanência dessa página.</label>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fecha</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

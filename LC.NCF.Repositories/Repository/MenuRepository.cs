@@ -71,11 +71,13 @@ namespace LC.NCF.Repositories.Repository
                                 [IdMenu],
                                 [InfoCorreta],
                                 [ePaginaRegulatoria],
+                                [PaginaSeraMantida],
                                 [Justificativa],
                                 [Usuario]) VALUES (
                                 @IdMenu,
                                 @InfoCorreta,
                                 @ePaginaRegulatoria,
+                                @PaginaSeraMantida,
                                 @Justificativa,
                                 @Usuario)";
 
