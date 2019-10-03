@@ -9,6 +9,7 @@ using LC.NCF.Business.Business;
 using LC.NCF.Business.Contracts;
 using LC.NCF.Data.Models;
 using System;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace CEMIG.MapadoSite.Controllers
 {
@@ -32,13 +33,7 @@ namespace CEMIG.MapadoSite.Controllers
                 categories.Add(new CategoryModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
             }
 
-            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories };
-
-            //dynamic objMultiModel = new ExpandoObject();
-            //objMultiModel.listaMenu = model;
-            //objMultiModel.listaMenu = _menuBusiness.GetMenuAvaliacao(69, "tprado");
-
-            //var multiModel = new Tuple<List<Menu>, List<MenuAvaliacao>>(getMenus(), getAvaliacoes());
+            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories, Avaliacoes = getAvaliacoes() };
 
             return View(model);
         }
@@ -64,6 +59,13 @@ namespace CEMIG.MapadoSite.Controllers
             List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
 
             return avaliacoes;
+        }
+
+        public IActionResult _ListaComentarios()
+        {
+            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
+
+            return View(avaliacoes);
         }
 
         public IActionResult Edit(int idLink)

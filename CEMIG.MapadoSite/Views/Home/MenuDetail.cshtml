@@ -1,11 +1,8 @@
-﻿@model LC.NCF.Data.Models.Menu
+﻿@using LC.NCF.Business.Interfaces;
+@model LC.NCF.Data.Models.Menu
 @{
     ViewBag.Title = "MenuModel";
 }
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-
-
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -39,7 +36,7 @@
                         </div>
                         @{ decimal mediaAnual = 0M;}
                         @{ var item = this.Model;
-                                mediaAnual = Convert.ToDecimal(item.QtdViewPage) / 365;
+                            mediaAnual = Convert.ToDecimal(item.QtdViewPage) / 365;
                             <div class="form-group col-sm-2">
                                 <label for="QtdViewPage">Média diária</label>
                                 <input type="text" readonly="readonly" class="form-control" id="QtdViewPage" placeholder="" value="@string.Format("{0:00.00}", mediaAnual)">
@@ -81,13 +78,16 @@
                         <div class="form-group" style="text-align: left">
                             <label style="color:red">Caso o link não funcione, provavelmente o mesmo foi excluido do site. Procure o setor de comunicação.</label>
                         </div>
-                         
+
                         <div class="form-group" style="text-align: right">
                             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModal">
                                 <i class="fa cui-pencil icons"></i>&nbsp;Incluir Avaliação
                             </button>
                             <button type="button" onclick="window.history.go(-1); return false;" class="btn btn-outline-dark">Voltar</button>
                         </div>
+                    </div>
+                    <div class="row">
+                        @*@{Html.RenderPartial("_ListaComentarios", new IEnumerable<LC.NCF.Data.Models.MenuAvaliacao()>());}*@
                     </div>
                 </form>
             </div>
@@ -108,60 +108,8 @@
                             <div class="card-header">
                                 <h2>Incluir avaliação</h2>
                             </div>
-                            <div class="card-body">
-                                
-                                @{Html.RenderPartial("_CriarComentario", new LC.NCF.Data.Models.MenuAvaliacao(),
-                                new ViewDataDictionary(ViewData)
-                                {
-                                    { "IdMenu", Model.Id }
-                                });}
-                                @*<form action="" method="post">
-                                    <div class="form-group row">
-                                        <div class="col-md-8">
-                                            As informações dessa página estão corretas?
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="InfoCorreta">
-                                            <label class="form-check-label" for="inline-radio1">Sim</label>
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="InfoCorreta">
-                                            <label class="form-check-label" for="inline-radio2">Não</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-8">
-                                            O conteúdo dessa página é regulatório?
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="ePaginaRegulatoria">
-                                            <label class="form-check-label" for="inline-radio1">Sim</label>
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="ePaginaRegulatoria">
-                                            <label class="form-check-label" for="inline-radio2">Não</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-8">
-                                            Esta página deve ser mantida?
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio1" value="option1" name="PaginaSeraMantida">
-                                            <label class="form-check-label" for="inline-radio1">Sim</label>
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2" value="option2" name="PaginaSeraMantida">
-                                            <label class="form-check-label" for="inline-radio2">Não</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-12 col-form-label" for="textarea-input">Apresente o(s) motivo(s) que justifique a permanência da página no novo Portal. (***)</label>
-                                        <div class="col-md-12">
-                                            <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
-                                        </div>
-                                    </div>
-                                </form>*@
+                            <div class="card-body">                                
+                                @{Html.RenderPartial("_CriarComentario", new LC.NCF.Data.Models.MenuAvaliacao(), new ViewDataDictionary(ViewData) { { "IdMenu", Model.Id } });}
                             </div>
                         </div>
                     </div>

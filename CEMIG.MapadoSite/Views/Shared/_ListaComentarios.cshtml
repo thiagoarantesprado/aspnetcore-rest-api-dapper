@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LC.NCF.Data.Models.MenuAvaliacao>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InfoCorreta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ePaginaRegulatoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginaSeraMantida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Justificativa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCriacao)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoCorreta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ePaginaRegulatoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaginaSeraMantida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Justificativa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCriacao)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
