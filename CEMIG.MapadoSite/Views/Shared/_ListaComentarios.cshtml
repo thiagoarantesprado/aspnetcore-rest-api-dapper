@@ -1,63 +1,66 @@
-﻿@model IEnumerable<LC.NCF.Data.Models.MenuAvaliacao>
+﻿@model List<LC.NCF.Data.Models.MenuAvaliacao>
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Informação correta?
+                </th>
+                <th>
+                    Regulatório?
+                </th>
+                <th>
+                    Será Mantida?
+                </th>
+                <th>
+                    Justificativa
+                </th>
+                <th>
+                    Criado por
+                </th>
+                <th>
+                    Criado em
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdMenu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InfoCorreta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ePaginaRegulatoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaginaSeraMantida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Justificativa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCriacao)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdMenu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InfoCorreta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ePaginaRegulatoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaginaSeraMantida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Justificativa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCriacao)
-            </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InfoCorreta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ePaginaRegulatoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaginaSeraMantida)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Justificativa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
 
-        </tr>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+
 }
-    </tbody>
-</table>
+else
+{
+    <div class="col-md-12 alert alert-success" role="alert" style="text-align:center">
+        Ainda não existem avaliações para esta página. Nos ajude com sua avaliação =)
+    </div>
+}
+
+

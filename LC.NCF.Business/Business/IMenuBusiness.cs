@@ -12,7 +12,7 @@ namespace LC.NCF.Business.Business
         MenuResponse GetAllMenu();
         Menu GetMenu(int Id);
         void AddMenuAvaliacao(MenuAvaliacao menuAvaliacao);
-        MenuAvaliacao GetMenuAvaliacao(int id, string usuario);
+        List<MenuAvaliacao> GetMenuAvaliacoes(int idMenu);
         List<MenuAvaliacao> GetAllMenuAvaliacao();
     }
 }

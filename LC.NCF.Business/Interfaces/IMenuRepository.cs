@@ -12,7 +12,7 @@ namespace LC.NCF.Business.Interfaces
         IEnumerable<Menu> GetAllMenus();
         Menu GetMenu(int Id);
         void AddMenuAvaliacao(MenuAvaliacao menuAvaliacao);
-        MenuAvaliacao GetMenuAvaliacao(int id, string usuario);
+        List<MenuAvaliacao> GetMenuAvaliacoes(int idMenu);
         List<MenuAvaliacao> GetAllMenuAvaliacao();
     }
 }

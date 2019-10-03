@@ -46,9 +46,9 @@ namespace LC.NCF.Business.Business
         {
             _menuRepository.AddMenuAvaliacao(menuAvaliacao);
         }
-        public MenuAvaliacao GetMenuAvaliacao(int id, string usuario)
+        public List<MenuAvaliacao> GetMenuAvaliacoes(int idMenu)
         {
-            MenuAvaliacao menuAvaliacao = _menuRepository.GetMenuAvaliacao(id, usuario);
+            List<MenuAvaliacao> menuAvaliacao = _menuRepository.GetMenuAvaliacoes(idMenu);
 
             return menuAvaliacao;
         }

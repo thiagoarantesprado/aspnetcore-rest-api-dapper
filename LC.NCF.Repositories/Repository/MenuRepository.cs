@@ -85,18 +85,17 @@ namespace LC.NCF.Repositories.Repository
             }
         }
 
-        public MenuAvaliacao GetMenuAvaliacao(int id, string usuario)
+        public List<MenuAvaliacao> GetMenuAvaliacoes(int idMenu)
         {
             using (IDbConnection dbConnection = _connection)
             {
                 string query = @"SELECT *
                                 FROM [dbo].[MenuAvaliacao]
-                                WHERE Id=@Id
-                                AND Usuario=@Usuario";
+                                WHERE IdMenu=@idMenu order by id desc";
 
-                var menu = dbConnection.Query<MenuAvaliacao>(query, new { @Id = id, @Usuario = usuario });
+                var menu = dbConnection.Query<MenuAvaliacao>(query, new { @idMenu = idMenu });
 
-                return menu.FirstOrDefault();
+                return menu.ToList();
             }
         }
 

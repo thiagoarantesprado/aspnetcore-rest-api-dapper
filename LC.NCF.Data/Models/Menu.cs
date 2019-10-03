@@ -18,5 +18,6 @@ namespace LC.NCF.Data.Models
         public decimal? MediumTimeAccess { get; set; }
         public decimal? RejectionTax { get; set; }
         public decimal? ExitTax { get; set; }
+        public List<MenuAvaliacao> Avaliacoes { get; set; }
     }
 }

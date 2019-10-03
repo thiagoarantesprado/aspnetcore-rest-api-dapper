@@ -61,7 +61,21 @@ namespace CEMIG.MapadoSite.Controllers
             return avaliacoes;
         }
 
-        public IActionResult _ListaComentarios()
+        public IActionResult ListaComentarios(int idMenu)
+        {
+            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetMenuAvaliacoes(idMenu);
+
+            return View("_ListaComentarios", avaliacoes);
+        }
+
+        public IActionResult _ListaComentarios(int idMenu)
+        {
+            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetMenuAvaliacoes(idMenu);
+
+            return View("_ListaComentarios", avaliacoes);
+        }
+
+        public IActionResult _ListaComentarios_()
         {
             List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
 
@@ -119,6 +133,7 @@ namespace CEMIG.MapadoSite.Controllers
             if (id > 0)
             {
                 var menu = _menuBusiness.GetMenu(id);
+                menu.Avaliacoes = _menuBusiness.GetMenuAvaliacoes(id);
                 return View(menu);
             }
             else
