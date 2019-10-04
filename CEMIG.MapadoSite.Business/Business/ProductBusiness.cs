@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using LC.NCF.Business.Contracts;
-using LC.NCF.Business.Interfaces;
-using LC.NCF.Data.Models;
+using CEMIG.MapadoSite.Business.Contracts;
+using CEMIG.MapadoSite.Business.Interfaces;
+using CEMIG.MapadoSite.Data.Models;
 
-namespace LC.NCF.Business.Business
+namespace CEMIG.MapadoSite.Business.Business
 {
     public class ProductBusiness : IProductBusiness
     {

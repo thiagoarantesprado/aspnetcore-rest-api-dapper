@@ -1,6 +1,6 @@
 using System;
 
-namespace LC.NCF.Data.Models
+namespace CEMIG.MapadoSite.Data.Models
 {
     public class Product
     {

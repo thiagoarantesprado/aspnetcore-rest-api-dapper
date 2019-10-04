@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LC.NCF.Data\LC.NCF.Data.csproj" />
+    <ProjectReference Include="..\CEMIG.MapadoSite.Data\CEMIG.MapadoSite.Data.csproj" />
   </ItemGroup>
 
 </Project>

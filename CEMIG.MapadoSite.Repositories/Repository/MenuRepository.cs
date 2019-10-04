@@ -4,11 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using LC.NCF.Data.Models;
+using CEMIG.MapadoSite.Data.Models;
 using Dapper;
-using LC.NCF.Business.Interfaces;
+using CEMIG.MapadoSite.Business.Interfaces;
 
-namespace LC.NCF.Repositories.Repository
+namespace CEMIG.MapadoSite.Repositories.Repository
 {
     public class MenuRepository : IMenuRepository
     {

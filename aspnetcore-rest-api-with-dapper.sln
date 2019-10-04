@@ -5,15 +5,13 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aspnetcore-rest-api-dapper", "aspnetcore-rest-api-with-dapper-master\aspnetcore-rest-api-dapper.csproj", "{8EB17B21-B2C8-43BA-8B98-ABBE5DEEE97E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC.NCF.Business", "LC.NCF.Business\LC.NCF.Business.csproj", "{7573D0E5-F1F9-46BA-8E2F-153971957D0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.MapadoSite.Business", "CEMIG.MapadoSite.Business\CEMIG.MapadoSite.Business.csproj", "{7573D0E5-F1F9-46BA-8E2F-153971957D0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC.NCF.Data", "LC.NCF.Data\LC.NCF.Data.csproj", "{35C19C23-60AC-43BD-A109-FD0DAEDA3812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.MapadoSite.Data", "CEMIG.MapadoSite.Data\CEMIG.MapadoSite.Data.csproj", "{35C19C23-60AC-43BD-A109-FD0DAEDA3812}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LC.NCF.Repositories", "LC.NCF.Repositories\LC.NCF.Repositories.csproj", "{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.MapadoSite.Repositories", "CEMIG.MapadoSite.Repositories\CEMIG.MapadoSite.Repositories.csproj", "{3F03D776-C70E-4B8E-80FB-C0B1145A8C6B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.MapadoSite", "CEMIG.MapadoSite\CEMIG.MapadoSite.csproj", "{3CF76EF4-376C-4FFA-AFE5-1F6B01C311E2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CEMIG.MapaSite", "CEMIG.MapaSite\CEMIG.MapaSite.csproj", "{12264064-D15D-408D-B6EB-89FDF2B1D085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{3CF76EF4-376C-4FFA-AFE5-1F6B01C311E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF76EF4-376C-4FFA-AFE5-1F6B01C311E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF76EF4-376C-4FFA-AFE5-1F6B01C311E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12264064-D15D-408D-B6EB-89FDF2B1D085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12264064-D15D-408D-B6EB-89FDF2B1D085}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12264064-D15D-408D-B6EB-89FDF2B1D085}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12264064-D15D-408D-B6EB-89FDF2B1D085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

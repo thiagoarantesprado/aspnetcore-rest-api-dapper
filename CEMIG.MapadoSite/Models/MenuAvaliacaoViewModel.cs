@@ -7,7 +7,7 @@ namespace CEMIG.MapadoSite.Models
 {
     public class MenuAvaliacaoViewModel
     {
-        public IEnumerable<LC.NCF.Data.Models.Menu> Menus { get; set; }
-        public IEnumerable<LC.NCF.Data.Models.MenuAvaliacao> Avaliacoes { get; set; }
+        public IEnumerable<CEMIG.MapadoSite.Data.Models.Menu> Menus { get; set; }
+        public IEnumerable<CEMIG.MapadoSite.Data.Models.MenuAvaliacao> Avaliacoes { get; set; }
     }
 }

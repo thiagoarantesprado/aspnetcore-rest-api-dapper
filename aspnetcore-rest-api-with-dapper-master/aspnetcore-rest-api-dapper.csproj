@@ -14,7 +14,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LC.NCF.Business\LC.NCF.Business.csproj" />
-    <ProjectReference Include="..\LC.NCF.Repositories\LC.NCF.Repositories.csproj" />
+    <ProjectReference Include="..\CEMIG.MapadoSite.Business\CEMIG.MapadoSite.Business.csproj" />
+    <ProjectReference Include="..\CEMIG.MapadoSite.Repositories\CEMIG.MapadoSite.Repositories.csproj" />
   </ItemGroup>
 </Project>

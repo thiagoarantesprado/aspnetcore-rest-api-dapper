@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LC.NCF.Business.Business;
-using LC.NCF.Business.Contracts;
+using CEMIG.MapadoSite.Business.Business;
+using CEMIG.MapadoSite.Business.Contracts;
 
 using Microsoft.AspNetCore.Mvc;
 

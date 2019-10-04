@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using LC.NCF.Data.Models;
+using CEMIG.MapadoSite.Data.Models;
 
-namespace LC.NCF.Business.Interfaces
+namespace CEMIG.MapadoSite.Business.Interfaces
 {
     public interface IMenuRepository
     {

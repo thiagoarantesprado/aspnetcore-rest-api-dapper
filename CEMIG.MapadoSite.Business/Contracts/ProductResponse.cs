@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using LC.NCF.Data.Models;
+using CEMIG.MapadoSite.Data.Models;
 using Newtonsoft.Json;
 
-namespace LC.NCF.Business.Contracts
+namespace CEMIG.MapadoSite.Business.Contracts
 {
     public class ProductResponse
     {

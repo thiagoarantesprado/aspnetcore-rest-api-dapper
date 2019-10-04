@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LC.NCF.Business\LC.NCF.Business.csproj" />
-    <ProjectReference Include="..\LC.NCF.Data\LC.NCF.Data.csproj" />
+    <ProjectReference Include="..\CEMIG.MapadoSite.Business\CEMIG.MapadoSite.Business.csproj" />
+    <ProjectReference Include="..\CEMIG.MapadoSite.Data\CEMIG.MapadoSite.Data.csproj" />
   </ItemGroup>
 
 </Project>

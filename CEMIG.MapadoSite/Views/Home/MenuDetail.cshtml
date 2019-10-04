@@ -1,5 +1,5 @@
-﻿@using LC.NCF.Business.Interfaces;
-@model LC.NCF.Data.Models.Menu
+﻿@using CEMIG.MapadoSite.Business.Interfaces;
+@model CEMIG.MapadoSite.Data.Models.Menu
 @{
     ViewBag.Title = "Informações detalhadas do Link";
 }
@@ -109,7 +109,7 @@
                                 <h2>Incluir avaliação</h2>
                             </div>
                             <div class="card-body">                                
-                                @{Html.RenderPartial("_CriarComentario", new LC.NCF.Data.Models.MenuAvaliacao(), new ViewDataDictionary(ViewData) { { "IdMenu", Model.Id } });}
+                                @{Html.RenderPartial("_CriarComentario", new CEMIG.MapadoSite.Data.Models.MenuAvaliacao(), new ViewDataDictionary(ViewData) { { "IdMenu", Model.Id } });}
                             </div>
                         </div>
                     </div>

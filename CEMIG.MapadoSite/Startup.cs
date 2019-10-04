@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using LC.NCF.Business.Business;
-using LC.NCF.Business.Interfaces;
-using LC.NCF.Repositories.Repository;
+using CEMIG.MapadoSite.Business.Business;
+using CEMIG.MapadoSite.Business.Interfaces;
+using CEMIG.MapadoSite.Repositories.Repository;
 
 namespace CEMIG.MapadoSite
 {

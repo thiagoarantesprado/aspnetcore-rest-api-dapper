@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LC.NCF.Data.Models
+namespace CEMIG.MapadoSite.Data.Models
 {
     public class MenuAvaliacao
     {
