@@ -1,40 +1,45 @@
 ﻿@model CEMIG.MapadoSite.Models.SeededCategoriesModel
 
-    <div>
-        <ul class="nav nav-list">
-            <li class="tree-toggle nav-header">               
-                @if (Model.Categories.Where(s => s.Parent_ID == Model.Seed).Any())
-                {
-                    <label class="tree-toggle nav-header"><i class="fa fa-arrow-right"></i></label>
-                    <ul class="nav nav-list tree">
-                        @foreach (var node in Model.Categories)
+<div>
+    <ul class="nav nav-list">
+        <li class="tree-toggle nav-header">
+            @if (Model.Categories.Where(s => s.Parent_ID == Model.Seed).Any())
+            {
+                <label class="tree-toggle nav-header"><i class="fa fa-arrow-right"></i></label>
+                <ul class="nav nav-list tree">
+                    @foreach (var node in Model.Categories)
+                    {
+                        if (node.Parent_ID == Model.Seed)
                         {
-                            if (node.Parent_ID == Model.Seed)
+                            CEMIG.MapadoSite.Models.SeededCategoriesModel inner = new CEMIG.MapadoSite.Models.SeededCategoriesModel { Seed = node.ID, Categories = Model.Categories };
+
+                            @if (!string.IsNullOrEmpty(node.Link))
                             {
-                                CEMIG.MapadoSite.Models.SeededCategoriesModel inner = new CEMIG.MapadoSite.Models.SeededCategoriesModel { Seed = node.ID, Categories = Model.Categories };
-
-                                @if (!string.IsNullOrEmpty(node.Link))
-                                {
-                                    <li class="nav tree">
-                                        <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>
-                                        <button type="button" class="btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID" >
-                                            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
-                                        </button>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li class="tree-toggle nav-header">
-                                        <a>@node.Name</a>
-                                    </li>
-                                }
-
-                                @Html.Partial("_TreeCategoriesPartial", inner)
+                    <li class="nav tree">
+                        <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>
+                        @*<button type="button" class="btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID">
+                            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
+                        </button>*@
+                        <a class="btn btn-light" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
+                        <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
+                        </a>
+                    </li>
                             }
-                        }
-                    </ul>
+                            else
+                            {
+                                <li class="tree-toggle nav-header">
+                                    <a>@node.Name</a>
+                                </li>
+                            }
 
-                }
-            </li>
-        </ul>
-    </div>
+                            @Html.Partial("_TreeCategoriesPartial", inner)
+                        }
+                    }
+                </ul>
+
+            }
+        </li>
+    </ul>
+</div>
+
+

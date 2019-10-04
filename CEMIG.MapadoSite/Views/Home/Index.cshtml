@@ -3,12 +3,29 @@
 }
 
 
-    <div class="text-center">
-       
-    </div>
+<div class="text-center">
 
-    <div class="text-left">
-        <label style="color:red">Caso o link não funcione, provavelmente o mesmo foi excluido do site. Procure o setor de comunicação.</label>
-        <a class="nav-header" style="color: rgb(153, 153, 153); font-weight:bold">Cemig</a>
-        @Html.Partial("_TreeCategoriesPartial")
-    </div>
+</div>
+
+<div class="text-left">
+    <label style="color:red">Caso o link não funcione, provavelmente o mesmo foi excluido do site. Procure o setor de comunicação.</label>
+    <a class="nav-header" style="color: rgb(153, 153, 153); font-weight:bold">Cemig</a>
+    @Html.Partial("_TreeCategoriesPartial")
+</div>
+
+<script>
+    function openwindow(e)
+    {
+        //var paginaRed = "~/Home/MenuDetail?id=" + idMenu;
+        // var actionUrl = '<%= Url.Content("Home", "MenuDetail", new { id = "'+ idMenu +'" } ) %>';
+        //var actionUrl = '<%= Url.Action("Home", "MenuDetail", new { id = "'+ idMenu +'" } ) %>';
+
+        //var x=window.open('@Url.Content("~/Home/MenuDetail?id=230")',target = '_blank', width = '100%', height = '100%');
+
+        var url = $(e).data('minhaAcao');
+        alert(url);
+        var x=window.open(url,target = '_blank', width = '100%', height = '100%');
+
+        //var x= window.open(url, target = '_blank', 'scrollbars=1,height=650,width=1050');
+    }
+</script>
