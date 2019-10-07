@@ -1,23 +1,24 @@
 ﻿@model CEMIG.MapadoSite.Data.Models.PaginaAusente
-
 <div class="row">
     <div class="col-md-12">
         <form asp-action="CriarPaginaAusente">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input asp-for="Usuario" hidden="hidden" class="form-control" value="@User.Identity.Name" />
             <div class="form-group row">
                 <div class="col-md-10">
                     <label asp-for="Link" class="control-label"></label>
-                    <input asp-for="Link" class="form-control" />
+                    <input asp-for="Link" oninvalid="this.setCustomValidity('Gentileza informar o caminho da página.')" oninput="this.setCustomValidity('')" class="form-control" required />
                     <span asp-validation-for="Link" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-md-12 col-form-label" asp-for="Observacao" for="Justificativa">Apresente sua observação.</label>
                 <div class="col-md-12">
-                    <textarea id="textarea-input" maxlength="500" asp-for="Observacao" name="Justificativa" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
+                    <textarea required oninvalid="this.setCustomValidity('Gentileza incluir suas observações.')" oninput="this.setCustomValidity('')" id="textarea-input" maxlength="500" asp-for="Observacao" name="Observacao" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
                 </div>
-                <span asp-validation-for="Observacao" class="text-danger"></span>
+                <span asp-validation-for="Observacao" class="text-danger">
+
+                </span>
             </div>
             <div class="form-group" style="text-align:right">
                 <input type="submit" value="Salvar" class="btn btn-primary" />

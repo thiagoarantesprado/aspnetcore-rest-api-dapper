@@ -3,6 +3,7 @@
 <div class="row" >
     <div class="col-md-12">
         <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input asp-for="IdMenu" hidden="hidden" class="form-control" value="@ViewData["IdMenu"]" />
             <input asp-for="Usuario" hidden="hidden" class="form-control" value="@User.Identity.Name" />
             <div class="form-group">
@@ -17,13 +18,13 @@
             </div>
             <div class="form-group">
                 <div class="col-md-10">
-                    <input class="form-check-input" asp-for="PaginaSeraMantida" /> Esta página deve ser mantida?
+                    <input class="form-check-input" onclick="validarPaginaSeraMantida()" asp-for="PaginaSeraMantida" id="PaginaSeraMantida" name="PaginaSeraMantida" /> Esta página deve ser mantida?
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-md-12 col-form-label" asp-for="Justificativa" for="Justificativa">Apresente o(s) motivo(s) que justifique a permanência da página no novo Portal.</label>
                 <div class="col-md-12">
-                    <textarea id="textarea-input" maxlength="500" asp-for="Justificativa" name="Justificativa" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
+                    <textarea id="Justificativa" oninvalid="this.setCustomValidity('Gentileza incluir sua(s) justificativa(s).')" oninput="this.setCustomValidity('')" maxlength="500" asp-for="Justificativa" name="Justificativa" rows="9" class="form-control" placeholder="Informe o(s) motivo(s) que justifique a permanência da página no novo Portal..."></textarea>
                 </div>
             </div>
             <div class="form-group" style="text-align:right">
@@ -33,4 +34,20 @@
         </form>
     </div>
 </div>
+
+<script>
+    function validarPaginaSeraMantida() {
+        var PaginaSeraMantida = document.getElementById("PaginaSeraMantida");
+        var Justificativa = document.getElementById("Justificativa");
+
+        if (PaginaSeraMantida.checked) {
+            Justificativa.required = "required";
+        }
+        else {
+            Justificativa.required = "";
+            Justificativa.setCustomValidity('');
+        }
+    }
+
+</script>
 
