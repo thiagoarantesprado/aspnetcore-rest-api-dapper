@@ -18,7 +18,7 @@
                                 <li class="nav tree">
                                     <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>&nbsp;
                                     <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
-                                        <a class="btn btn-sm btn-pill" style="color: black; font-weight: bold; background-color: @node.Color" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
+                                        <a class="btn btn-light" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
                                             <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
                                         </a>
                                     </div>
