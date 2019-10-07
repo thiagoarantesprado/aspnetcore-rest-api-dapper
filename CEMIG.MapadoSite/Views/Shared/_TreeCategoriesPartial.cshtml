@@ -5,7 +5,7 @@
         <li class="tree-toggle nav-header">
             @if (Model.Categories.Where(s => s.Parent_ID == Model.Seed).Any())
             {
-                <label class="tree-toggle nav-header"><i class="fa fa-arrow-right"></i></label>
+            <label class="tree-toggle nav-header"><i class="fa fa-arrow-right"></i></label>
                 <ul class="nav nav-list tree">
                     @foreach (var node in Model.Categories)
                     {
@@ -15,20 +15,17 @@
 
                             @if (!string.IsNullOrEmpty(node.Link))
                             {
-                    <li class="nav tree">
-                        <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>&nbsp;
-                        @*<button type="button" class="btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID">
-                                <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
-                            </button>*@
-                        <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
-                            <a class="btn btn-sm btn-pill" style="color: black; font-weight: bold; background-color: @node.Color" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
-                                <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
-                            </a>
-                        </div>
-                    </li>
+                                <li class="nav tree">
+                                    <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>&nbsp;
+                                    <div class="col-6 col-sm-4 col-md mb-3 mb-xl-0 text-center">
+                                        <a class="btn btn-sm btn-pill" style="color: black; font-weight: bold; background-color: @node.Color" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
+                                            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
+                                        </a>
+                                    </div>
+                                </li>
                             }
                             else
-                            {
+                            {    
                                 <li class="tree-toggle nav-header">
                                     <a>@node.Name</a>
                                 </li>
@@ -38,7 +35,6 @@
                         }
                     }
                 </ul>
-
             }
         </li>
     </ul>
