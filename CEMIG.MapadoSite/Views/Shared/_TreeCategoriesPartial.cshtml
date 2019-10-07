@@ -16,12 +16,12 @@
                             @if (!string.IsNullOrEmpty(node.Link))
                             {
                     <li class="nav tree">
-                        <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>
+                        <a target="_blank" href="@(node.Link == null ? "#" : node.Link)">@node.Name</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         @*<button type="button" class="btn btn-light" onclick="location.href='@Url.Action("MenuDetail", "Home")?id=@node.ID'" data-id="@node.ID">
-                            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
-                        </button>*@
+            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
+        </button>*@
                         <a class="btn btn-light" href="@Url.Action("MenuDetail", "Home")?id=@node.ID" target="_blank">
-                        <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
+                            <i class="fa cui-pencil icons" style="background-color: @node.Color"></i>&nbsp;Avaliar Página
                         </a>
                     </li>
                             }
