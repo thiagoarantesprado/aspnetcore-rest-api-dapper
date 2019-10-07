@@ -146,6 +146,25 @@ namespace CEMIG.MapadoSite.Controllers
             return View();
         }
 
+        public IActionResult PaginasAusente()
+        {
+            var retornoPaginasAusente = _menuBusiness.GetAllPaginasAusente();
+            return View(retornoPaginasAusente);
+        }
+
+        [HttpPost]
+        public IActionResult CriarPaginaAusente(PaginaAusente paginaAusente)
+        {
+            if (ModelState.IsValid)
+            {
+                _menuBusiness.AddPaginaAusente(paginaAusente);
+
+                return RedirectToAction("PaginasAusente");
+            }
+            else
+                return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

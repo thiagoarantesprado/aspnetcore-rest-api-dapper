@@ -46,6 +46,7 @@ namespace CEMIG.MapadoSite.Business.Business
         {
             _menuRepository.AddMenuAvaliacao(menuAvaliacao);
         }
+
         public List<MenuAvaliacao> GetMenuAvaliacoes(int idMenu)
         {
             List<MenuAvaliacao> menuAvaliacao = _menuRepository.GetMenuAvaliacoes(idMenu);
@@ -75,6 +76,18 @@ namespace CEMIG.MapadoSite.Business.Business
             }
 
             return menuResponse;
+        }
+
+        public List<PaginaAusente> GetAllPaginasAusente()
+        {
+            List<PaginaAusente> paginasAusente = _menuRepository.GetAllPaginasAusente();
+
+            return paginasAusente;
+        }
+
+        public void AddPaginaAusente(PaginaAusente paginaAusente)
+        {
+            _menuRepository.AddPaginaAusente(paginaAusente);
         }
     }
 }

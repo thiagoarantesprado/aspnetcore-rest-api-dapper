@@ -63,6 +63,36 @@ namespace CEMIG.MapadoSite.Repositories.Repository
             }
         }
 
+        public void AddPaginaAusente(PaginaAusente paginaAusente)
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"INSERT INTO [dbo].[PaginasAusente] (
+                                [Link],
+                                [Observacao],
+                                [Usuario]) VALUES (
+                                @Link,
+                                @Observacao,
+                                @Usuario)";
+
+                dbConnection.Execute(query, paginaAusente);
+            }
+        }
+
+        public List<PaginaAusente> GetAllPaginasAusente()
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"SELECT *
+                                FROM [dbo].[PaginasAusente]
+                                ORDER BY ID DESC";
+
+                var menu = dbConnection.Query<PaginaAusente>(query);
+
+                return menu.ToList();
+            }
+        }
+
         public void AddMenuAvaliacao(MenuAvaliacao menuAvaliacao)
         {
             using (IDbConnection dbConnection = _connection)
