@@ -31,8 +31,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Link)
+                <td>                    
+                    <code class="highlighter-rouge"><a href="http://@(item.Link)" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Observacao)
