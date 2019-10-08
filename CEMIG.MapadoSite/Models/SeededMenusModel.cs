@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CEMIG.MapadoSite.Models
 {
-    public class SeededCategoriesModel
+    public class SeededMenusModel
     {
         public int? Seed { get; set; }
-        public IList<CategoryModel> Categories { get; set; }
+        public IList<MenusModel> Menus { get; set; }
         public IList<MenuAvaliacao> Avaliacoes { get; set; }
     }
 }

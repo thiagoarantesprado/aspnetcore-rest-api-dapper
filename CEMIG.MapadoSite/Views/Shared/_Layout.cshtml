@@ -45,7 +45,7 @@
 </head>
 <body class="bg-gray-100">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-gray border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="background-color: darkslategray">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img width="128" src="~/images/logos/logoCemigBranco.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -58,13 +58,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        
+
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="PaginasAusente">Página <br />Ausente</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="PaginasAusente">Informe <br />Páginas Ausente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="AnaliseAvaliacao" asp-action="PaginasSemAvaliacoes">Páginas <br />Sem Avaliações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="AnaliseAvaliacao" asp-action="PaginasAvaliadas">Páginas <br />Avaliadas</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
-                        </li>*@
+            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+        </li>*@
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CEMIG.MapadoSite.Data.Models.MenuAnaliseAvaliacao>
+
+@{
+    ViewData["Title"] = "Páginas Sem Avaliações";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="color:darkgreen">@ViewData["Title"]</h1>
+<table class="table table-responsive-sm table-bordered table-striped table-sm">
+    <thead>
+        <tr style="color: white; background-color: #005c34">
+            <th>
+                Página
+            </th>
+            <th>
+
+            </th>
+            <th style="text-align:center">
+                Visualizações Último Ano
+            </th>
+            <th style="text-align:center">
+                Média Diária
+            </th>
+            <th style="text-align:center">
+                Taxa de Rejeição
+            </th>
+            <th style="text-align:center">
+                Percentual de Saída
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                <code class="highlighter-rouge"><a href="@Url.Action("MenuDetail", "Home")?id=@item.Id" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
+            </td>
+            <td style="background-color: @item.Cor; color: @item.Cor">
+                @Html.DisplayFor(modelItem => item.Cor)
+            </td>
+            <td style="text-align:right">
+                @Html.DisplayFor(modelItem => item.QtdViewPage)
+            </td>
+            <td style="text-align:right">
+                @{ decimal mediaAnual = 0M;}
+                @{ mediaAnual = Convert.ToDecimal(item.QtdViewPage) / 365;
+                }
+
+                @string.Format("{0:0.00}", mediaAnual)
+
+            </td>
+            <td style="text-align:right">
+                @{ decimal percentRejeicao = 0M; }
+                @{ percentRejeicao = Convert.ToDecimal(item.RejectionTax) * 100;
+                }
+                @string.Format("{0:0.00}", percentRejeicao) %
+            </td>
+            <td style="text-align:right">
+                @{ decimal percentSaida = 0M; }
+                @{ percentSaida = Convert.ToDecimal(item.ExitTax) * 100;
+                }
+                @string.Format("{0:0.00}", percentSaida) %
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>

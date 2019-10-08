@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CEMIG.MapadoSite.Models
 {
-    public class CategoryModel
+    public class MenusModel
     {
         public int ID { get; set; }
         public int? Parent_ID { get; set; }

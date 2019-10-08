@@ -1,18 +1,18 @@
-﻿@model CEMIG.MapadoSite.Models.SeededCategoriesModel
+﻿@model CEMIG.MapadoSite.Models.SeededMenusModel
 
 <div>
     <ul class="nav nav-list">
 
-        @if (Model.Categories.Where(s => s.Parent_ID == Model.Seed).Any())
+        @if (Model.Menus.Where(s => s.Parent_ID == Model.Seed).Any())
         {
             <li>
                 <label class="tree-toggle nav-header"><i class="fa fa-arrow-right fa-lg"></i></label>
                 <ul class="nav nav-list tree">
-                    @foreach (var node in Model.Categories)
+                    @foreach (var node in Model.Menus)
                     {
                         if (node.Parent_ID == Model.Seed)
                         {
-                            CEMIG.MapadoSite.Models.SeededCategoriesModel inner = new CEMIG.MapadoSite.Models.SeededCategoriesModel { Seed = node.ID, Categories = Model.Categories };
+                            CEMIG.MapadoSite.Models.SeededMenusModel inner = new CEMIG.MapadoSite.Models.SeededMenusModel { Seed = node.ID, Menus = Model.Menus };
 
                             @if (!string.IsNullOrEmpty(node.Link))
                             {

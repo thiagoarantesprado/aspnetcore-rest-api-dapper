@@ -16,5 +16,7 @@ namespace CEMIG.MapadoSite.Business.Business
         List<MenuAvaliacao> GetAllMenuAvaliacao();
         List<PaginaAusente> GetAllPaginasAusente();
         void AddPaginaAusente(PaginaAusente paginaAusente);
+        List<MenuAnaliseAvaliacao> GetMenuQueNaoPossuemAvaliacoes();
+        List<MenuAnaliseAvaliacao> GetMenuQuePossuemAvaliacoes();
     }
 }

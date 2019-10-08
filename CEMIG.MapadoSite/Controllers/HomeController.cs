@@ -26,14 +26,14 @@ namespace CEMIG.MapadoSite.Controllers
         {
             MenuResponse menus = _menuBusiness.GetAllMenu();
 
-            IList<CategoryModel> categories = new List<CategoryModel>();
+            IList<MenusModel> menusList = new List<MenusModel>();
 
             foreach (var menu in menus.Menus)
             {
-                categories.Add(new CategoryModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
+                menusList.Add(new MenusModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
             }
 
-            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories, Avaliacoes = getAvaliacoes() };
+            Models.SeededMenusModel model = new Models.SeededMenusModel { Seed = null, Menus = menusList, Avaliacoes = getAvaliacoes() };
 
             return View(model);
         }
@@ -42,16 +42,16 @@ namespace CEMIG.MapadoSite.Controllers
         {
             MenuResponse menus = _menuBusiness.GetAllMenu();
 
-            IList<CategoryModel> categories = new List<CategoryModel>();
+            IList<MenusModel> menusList = new List<MenusModel>();
 
             foreach (var menu in menus.Menus)
             {
-                categories.Add(new CategoryModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
+                menusList.Add(new MenusModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
             }
 
-            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories };
+            Models.SeededMenusModel model = new Models.SeededMenusModel { Seed = null, Menus = menusList };
 
-            return (List<Menu>)model.Categories;
+            return (List<Menu>)model.Menus;
         }
 
         public List<MenuAvaliacao> getAvaliacoes()
@@ -68,32 +68,18 @@ namespace CEMIG.MapadoSite.Controllers
             return View("_ListaComentarios", avaliacoes);
         }
 
-        public IActionResult _ListaComentarios(int idMenu)
-        {
-            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetMenuAvaliacoes(idMenu);
-
-            return View("_ListaComentarios", avaliacoes);
-        }
-
-        public IActionResult _ListaComentarios_()
-        {
-            List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
-
-            return View(avaliacoes);
-        }
-
         public IActionResult Edit(int idLink)
         {
             MenuResponse menus = _menuBusiness.GetAllMenu();
 
-            IList<CategoryModel> categories = new List<CategoryModel>();
+            IList<MenusModel> menuList = new List<MenusModel>();
 
             foreach (var menu in menus.Menus)
             {
-                categories.Add(new CategoryModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
+                menuList.Add(new MenusModel { ID = menu.Id, Parent_ID = menu.IdPai == null ? null : menu.IdPai, Name = menu.Nome, Color = menu.Cor, Link = menu.Link });
             }
 
-            Models.SeededCategoriesModel model = new Models.SeededCategoriesModel { Seed = null, Categories = categories.Where(i => i.ID == idLink).ToList() };
+            Models.SeededMenusModel model = new Models.SeededMenusModel { Seed = null, Menus = menuList.Where(i => i.ID == idLink).ToList() };
             return View(model);
         }
 

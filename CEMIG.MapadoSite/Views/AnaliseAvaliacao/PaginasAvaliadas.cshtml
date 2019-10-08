@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CEMIG.MapadoSite.Data.Models.MenuAnaliseAvaliacao>
+
+@{
+    ViewData["Title"] = "Páginas Avaliadas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="color:darkgreen">@ViewData["Title"]</h1>
+<table class="table table-responsive-sm table-bordered table-striped table-sm">
+    <thead>
+        <tr style="color: white; background-color: #005c34">
+            <th>
+                Página
+            </th>
+            <th>
+                
+            </th>
+            <th style="text-align:center">
+                Avaliações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <code class="highlighter-rouge"><a href="@Url.Action("MenuDetail", "Home")?id=@item.Id" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
+                </td>
+                <td style="background-color: @item.Cor; color: @item.Cor">
+                    @Html.DisplayFor(modelItem => item.Cor)
+                </td>
+                <td style="text-align:right">
+                    @Html.DisplayFor(modelItem => item.quantAvaliacoes)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

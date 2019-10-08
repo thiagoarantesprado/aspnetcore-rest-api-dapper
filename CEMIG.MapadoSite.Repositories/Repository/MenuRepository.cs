@@ -129,6 +129,51 @@ namespace CEMIG.MapadoSite.Repositories.Repository
             }
         }
 
+        public List<MenuAnaliseAvaliacao> GetMenuQuePossuemAvaliacoes()
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"SELECT 
+	                                me.Id, me.Nome, me.Link, me.cor, me.QtdViewPage, me.QtdUnViewPage,
+                                    me.QtdEnterAcess,me.MediumTimeAccess,me.RejectionTax,me.ExitTax,
+	                                COUNT(ma.IdMenu) as quantAvaliacoes
+                                FROM 
+	                                [dbo].[MenuAvaliacao] ma
+                                INNER JOIN 
+	                                [dbo].[Menu] me ON ma.IdMenu = me.Id
+                                WHERE me.link like '%.aspx%'
+                                GROUP BY me.Id, me.Nome, me.Link, me.cor, me.QtdViewPage, me.QtdUnViewPage,
+                                me.QtdEnterAcess,me.MediumTimeAccess,me.RejectionTax,me.ExitTax";
+
+                var menu = dbConnection.Query<MenuAnaliseAvaliacao>(query);
+
+                return menu.ToList();
+            }
+        }
+
+        public List<MenuAnaliseAvaliacao> GetMenuQueNaoPossuemAvaliacoes()
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"SELECT 
+	                                me.Id, me.Nome, me.Link, me.cor, me.QtdViewPage, me.QtdUnViewPage,
+                                    me.QtdEnterAcess,me.MediumTimeAccess,me.RejectionTax,me.ExitTax,
+	                                COUNT(ma.IdMenu) as quantAvaliacoes
+                                FROM 
+	                                [dbo].[MenuAvaliacao] ma
+                                RIGHT OUTER JOIN 
+	                                [dbo].[Menu] me ON ma.IdMenu = me.Id
+                                WHERE me.link like '%.aspx%'
+                                GROUP BY me.Id, me.Nome, me.Link, me.cor, me.QtdViewPage, me.QtdUnViewPage,
+                                me.QtdEnterAcess,me.MediumTimeAccess,me.RejectionTax,me.ExitTax
+                                HAVING COUNT(ma.IdMenu) = 0";
+
+                var menu = dbConnection.Query<MenuAnaliseAvaliacao>(query);
+
+                return menu.ToList();
+            }
+        }
+
         public List<MenuAvaliacao> GetAllMenuAvaliacao()
         {
             using (IDbConnection dbConnection = _connection)

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using CEMIG.MapadoSite.Business.Contracts;
 using CEMIG.MapadoSite.Business.Interfaces;
 using CEMIG.MapadoSite.Data.Models;
@@ -88,6 +87,20 @@ namespace CEMIG.MapadoSite.Business.Business
         public void AddPaginaAusente(PaginaAusente paginaAusente)
         {
             _menuRepository.AddPaginaAusente(paginaAusente);
+        }
+
+        public List<MenuAnaliseAvaliacao> GetMenuQueNaoPossuemAvaliacoes()
+        {
+            List<MenuAnaliseAvaliacao> menuAnaliseAvaliacao = _menuRepository.GetMenuQueNaoPossuemAvaliacoes();
+
+            return menuAnaliseAvaliacao;
+        }
+
+        public List<MenuAnaliseAvaliacao> GetMenuQuePossuemAvaliacoes()
+        {
+            List<MenuAnaliseAvaliacao> menuAnaliseAvaliacao = _menuRepository.GetMenuQuePossuemAvaliacoes();
+
+            return menuAnaliseAvaliacao;
         }
     }
 }
