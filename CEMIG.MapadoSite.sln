@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.Api", "aspnetcore-rest-api-with-dapper-master\CEMIG.Api.csproj", "{8EB17B21-B2C8-43BA-8B98-ABBE5DEEE97E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.Api", "CEMIG.Api\CEMIG.Api.csproj", "{8EB17B21-B2C8-43BA-8B98-ABBE5DEEE97E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CEMIG.MapadoSite.Business", "CEMIG.MapadoSite.Business\CEMIG.MapadoSite.Business.csproj", "{7573D0E5-F1F9-46BA-8E2F-153971957D0D}"
 EndProject

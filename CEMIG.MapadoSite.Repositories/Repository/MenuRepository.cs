@@ -166,7 +166,8 @@ namespace CEMIG.MapadoSite.Repositories.Repository
                                 WHERE me.link like '%.aspx%'
                                 GROUP BY me.Id, me.Nome, me.Link, me.cor, me.QtdViewPage, me.QtdUnViewPage,
                                 me.QtdEnterAcess,me.MediumTimeAccess,me.RejectionTax,me.ExitTax
-                                HAVING COUNT(ma.IdMenu) = 0";
+                                HAVING COUNT(ma.IdMenu) = 0
+                                ORDER BY me.QtdViewPage DESC";
 
                 var menu = dbConnection.Query<MenuAnaliseAvaliacao>(query);
 

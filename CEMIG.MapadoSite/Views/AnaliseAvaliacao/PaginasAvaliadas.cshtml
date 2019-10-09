@@ -12,7 +12,7 @@
                 Página
             </th>
             <th>
-                
+
             </th>
             <th style="text-align:center">
                 Avaliações
@@ -36,3 +36,9 @@
         }
     </tbody>
 </table>
+
+
+@*@{
+    WebGrid grid = new WebGrid(null, rowsPerPage: @Model.PageSize);
+    grid.Bind(Model, autoSortAndPage: true, rowCount: @Model.PageSize);
+}*@
