@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CEMIG.MapadoSite.Data.Models.Sugestao>
+
+@{
+    ViewData["Title"] = "Sugestoes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="form-group" style="text-align: right">
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#myModalCriarPaginaAusente">
+            <i class="fa cui-pencil icons"></i>&nbsp;Cadastre sua sugestão
+        </button>
+    </div>
+<table class="table table-responsive-sm table-bordered table-striped table-sm">
+    <thead>
+        <tr style="color: white; background-color: #005c34">
+            <th width="50%">
+                Sugestão
+            </th>
+            <th>
+                Usuário
+            </th>
+            <th>
+                Criada em
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Observacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>
+                    Não temos sugestões até o momento ;)
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+@section Modals {
+    <div class="modal fade" id="myModalCriarPaginaAusente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-gray" style="color: white">
+                    <h2>Nos dê sua sugestão, ficaremos felizes em lhe atender! =)</h2>
+                </div>
+                <div class="modal-body bg-gray-100">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            @*<div class="card-header bg-gray">
+
+                                </div>*@
+                            <div class="card-body bg-gray-100">
+                                @{Html.RenderPartial("_CriarSugestao", new CEMIG.MapadoSite.Data.Models.Sugestao());}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+}

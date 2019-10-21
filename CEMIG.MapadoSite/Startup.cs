@@ -37,6 +37,9 @@ namespace CEMIG.MapadoSite
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddTransient<ISugestaoBusiness, SugestaoBusiness>();
+            services.AddTransient<ISugestaoRepository, SugestaoRepository>();
+
             services.AddTransient<IMenuBusiness, MenuBusiness>();
             services.AddTransient<IMenuRepository, MenuRepository>();
 
