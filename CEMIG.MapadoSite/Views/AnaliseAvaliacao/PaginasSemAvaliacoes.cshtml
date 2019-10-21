@@ -4,9 +4,8 @@
     ViewData["Title"] = "Páginas Sem Avaliações";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <h1 style="color:darkgreen">@ViewData["Title"]</h1>
 <table class="table table-responsive-sm table-bordered table-striped table-sm">
     <thead>
@@ -31,42 +30,77 @@
             </th>
         </tr>
     </thead>
-    <p>Digite o nome da página para que possamos localizá-la:</p>
+    @if (Model.Count() > 0)
+    {
+    <p>Digite informações da página para que possamos localizá-la:</p>
     <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+    }
     <tbody id="myTable">
-        @foreach (var item in Model)
+        @if (Model.Count() > 0)
         {
-            <tr>
-                <td>
-                    <code class="highlighter-rouge"><a href="@Url.Action("MenuDetail", "Home")?id=@item.Id" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
-                </td>
-                <td style="background-color: @item.Cor; color: @item.Cor">
-                    @Html.DisplayFor(modelItem => item.Cor)
-                </td>
-                <td style="text-align:right">
-                    @Html.DisplayFor(modelItem => item.QtdViewPage)
-                </td>
-                <td style="text-align:right">
-                    @{ decimal mediaAnual = 0M;}
-                    @{ mediaAnual = Convert.ToDecimal(item.QtdViewPage) / 365;
-                    }
+            foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                <code class="highlighter-rouge"><a href="@Url.Action("MenuDetail", "Home")?id=@item.Id" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
+            </td>
+            <td style="background-color: @item.Cor; color: @item.Cor">
+                @switch (item.Cor)
+                        {
+                        case "Yellow":
+                <div>Amarelo</div>
+                        break;
+                        case "Orange":
+                <div>Laranjado</div>
+                        break;
+                        case "Red":
+                <div>Vermelho</div>
+                        break;
+                        case "Green":
+                <div>Verde</div>
+                        break;
+                        case "Purple":
+                <div>Roxo</div>
+                        break;
+                        }
+            </td>
+            <td style="text-align:right">
+                @Html.DisplayFor(modelItem => item.QtdViewPage)
+            </td>
+            <td style="text-align:right">
+                @{ decimal mediaAnual = 0M;}
+                @{ mediaAnual = Convert.ToDecimal(item.QtdViewPage) / 365;
+                }
 
-                    @string.Format("{0:0.00}", mediaAnual)
+                @string.Format("{0:0.00}", mediaAnual)
 
-                </td>
-                <td style="text-align:right">
-                    @{ decimal percentRejeicao = 0M; }
-                    @{ percentRejeicao = Convert.ToDecimal(item.RejectionTax) * 100;
-                    }
-                    @string.Format("{0:0.00}", percentRejeicao) %
-                </td>
-                <td style="text-align:right">
-                    @{ decimal percentSaida = 0M; }
-                    @{ percentSaida = Convert.ToDecimal(item.ExitTax) * 100;
-                    }
-                    @string.Format("{0:0.00}", percentSaida) %
-                </td>
-            </tr>
+            </td>
+            <td style="text-align:right">
+                @{ decimal percentRejeicao = 0M; }
+                @{ percentRejeicao = Convert.ToDecimal(item.RejectionTax) * 100;
+                }
+                @string.Format("{0:0.00}", percentRejeicao) %
+            </td>
+            <td style="text-align:right">
+                @{ decimal percentSaida = 0M; }
+                @{ percentSaida = Convert.ToDecimal(item.ExitTax) * 100;
+                }
+                @string.Format("{0:0.00}", percentSaida) %
+            </td>
+        </tr>
+            }
+        }
+        else
+        {
+        <tr>
+            <td>
+                Sem registros até o momento.
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
