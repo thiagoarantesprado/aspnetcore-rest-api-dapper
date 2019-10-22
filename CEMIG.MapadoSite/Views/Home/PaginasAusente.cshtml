@@ -10,13 +10,13 @@
         <i class="fa cui-pencil icons"></i>&nbsp;Criar Nova Página Ausente
     </button>
 </div>
-<table class="table table-responsive-sm table-bordered table-striped table-sm">
+<table class="table table-responsive-sm table-bordered table-striped table-sm" style="table-layout: fixed">
     <thead>
         <tr style="color: white; background-color: #005c34">
-            <th width="25%">
+            <th width="40%">
                 @Html.DisplayNameFor(model => model.Link)
             </th>
-            <th width="50%">
+            <th width="40%">
                 Observação
             </th>
             <th>
@@ -33,10 +33,10 @@
             foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td style="word-wrap: break-word;">
                         <code class="highlighter-rouge"><a href="http://@(item.Link)" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
                     </td>
-                    <td>
+                    <td style="word-wrap: break-word;">
                         @Html.DisplayFor(modelItem => item.Observacao)
                     </td>
                     <td>
