@@ -17,6 +17,14 @@ namespace CEMIG.MapadoSite.Business.Business
             _menuRepository = menuRepository;
         }
 
+
+        public List<RelacaoAvaliacoes> GetRelacaoAvaliacoes()
+        {
+            List<RelacaoAvaliacoes> relacaoAvaliacoes = _menuRepository.GetRelacaoAvaliacoes();
+
+            return relacaoAvaliacoes;
+        }
+
         public MenuResponse GetAllMenu()
         {
             MenuResponse menuResponse = new MenuResponse();

@@ -24,6 +24,12 @@ namespace CEMIG.MapadoSite.Controllers
             return View();
         }
 
+        public IActionResult RelacaoAvaliacoes()
+        {
+            var relacaoAvaliacoes = _menuBusiness.GetRelacaoAvaliacoes();
+            return View(relacaoAvaliacoes);
+        }
+
         public ActionResult PaginasSemAvaliacoes()
         {
             var menuQueNaoPossuemAvaliacoes = _menuBusiness.GetMenuQueNaoPossuemAvaliacoes();

@@ -10,13 +10,16 @@
 <table class="table table-responsive-sm table-bordered table-striped table-sm" style="table-layout: fixed">
     <thead>
         <tr style="color: white; background-color: #005c34">
+            <th width="4%">
+                Id
+            </th>
             <th width="80%">
                 Página
             </th>
             <th>
 
             </th>
-            <th style="text-align:center">
+            <th style="word-wrap: break-word; text-align:center"  width="8%">
                 Avaliações
             </th>
         </tr>
@@ -33,27 +36,30 @@
             {
         <tr>
             <td>
+                <code class="btn-secondary">@Html.DisplayFor(modelItem => item.Id)</code>
+            </td>
+            <td>
                 <code class="highlighter-rouge"><a href="@Url.Action("MenuDetail", "Home")?id=@item.Id" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
             </td>
-            <td style="background-color: @item.Cor; color: @item.Cor">
+            <td style="word-wrap: break-word; background-color: @item.Cor; color: @item.Cor">
                 @switch (item.Cor)
-                        {
-                        case "Yellow":
-                <div>Amarelo</div>
+                {
+                    case "Yellow":
+                        <div>Amarelo</div>
                         break;
-                        case "Orange":
-                <div>Laranjado</div>
+                    case "Orange":
+                        <div>Laranjado</div>
                         break;
-                        case "Red":
-                <div>Vermelho</div>
+                    case "Red":
+                        <div>Vermelho</div>
                         break;
-                        case "Green":
-                <div>Verde</div>
+                    case "Green":
+                        <div>Verde</div>
                         break;
-                        case "Purple":
-                <div>Roxo</div>
+                    case "Purple":
+                        <div>Roxo</div>
                         break;
-                        }
+                }
             </td>
             <td style="text-align:right">
                 @Html.DisplayFor(modelItem => item.quantAvaliacoes)

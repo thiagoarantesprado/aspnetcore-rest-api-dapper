@@ -21,6 +21,32 @@ namespace CEMIG.MapadoSite.Repositories.Repository
             _connectionString = "Data Source=cemigsqlsrv.database.windows.net;Initial Catalog=CEMIG_SITE;User ID=cemig;Password=2019@bhs;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
+        public List<RelacaoAvaliacoes> GetRelacaoAvaliacoes()
+        {
+            using (IDbConnection dbConnection = _connection)
+            {
+                string query = @"select ma.usuario as Usuario, 
+                                f.sig_orgao as Orgao,
+                                f.nom_funcionario as NomeUsuario,
+                                f.num_telefone as Telefone,
+                                ma.idmenu as IdMenu, 
+                                ma.infocorreta as InfoCorreta, 
+                                ma.ePaginaRegulatoria as ePaginaRegulatoria, 
+                                ma.PaginaSeraMantida as PaginaSeraMantida,
+                                m.link as Link,
+                                m.cor as Cor,
+                                REPLACE(REPLACE(REPLACE(CAST(ma.justificativa AS CHAR(5000)), CHAR(10), ''), CHAR(13), ''),CHAR(9),'') as Justificativa
+                                from menuavaliacao ma, menu m, tfuncionario f
+                                where m.id = ma.idmenu
+                                and ma.usuario = f.num_matricula
+                                order by ma.usuario";
+
+                var menu = dbConnection.Query<RelacaoAvaliacoes>(query);
+
+                return menu.ToList();
+            }
+        }
+
         public async Task<IEnumerable<Menu>> GetAllMenuAsync()
         {
             //TODO: Paging...

@@ -54,6 +54,13 @@ namespace CEMIG.MapadoSite.Controllers
             return (List<Menu>)model.Menus;
         }
 
+        public List<RelacaoAvaliacoes> GetRelacaoAvaliacoes()
+        {
+            List<RelacaoAvaliacoes> relacaoAvaliacoes = _menuBusiness.GetRelacaoAvaliacoes();
+
+            return relacaoAvaliacoes;
+        }
+
         public List<MenuAvaliacao> getAvaliacoes()
         {
             List<MenuAvaliacao> avaliacoes = _menuBusiness.GetAllMenuAvaliacao();
