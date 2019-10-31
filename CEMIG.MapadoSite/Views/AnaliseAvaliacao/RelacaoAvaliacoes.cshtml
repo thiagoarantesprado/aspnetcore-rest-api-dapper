@@ -10,6 +10,9 @@
 <table class="table table-responsive-sm table-bordered table-striped table-sm" style="table-layout: fixed">
     <thead>
         <tr style="color: white; background-color: #005c34">
+            <th width="4%" style="word-wrap: break-word; text-align:center">
+                Id
+            </th>
             <th width="10%" style="word-wrap: break-word; text-align:center">
                 Nome Funcionário
             </th>
@@ -32,7 +35,7 @@
                 Página
             </th>
             <th style="word-wrap: break-word; text-align:center">
-                
+
             </th>
             <th width="30%" style="word-wrap: break-word; text-align:center">
                 Justificativa
@@ -50,6 +53,9 @@
             foreach (var item in Model)
             {
         <tr>
+            <td style="word-wrap: break-word; text-align:center">
+                @Html.DisplayFor(modelItem => item.IdMenu)
+            </td>
             <td style="word-wrap: break-word; text-align:center">
                 @Html.DisplayFor(modelItem => item.NomeUsuario)
             </td>
@@ -75,19 +81,19 @@
                 @switch (item.Cor)
                 {
                     case "Yellow":
-                        <div>Amarelo</div>
+                <div>Amarelo</div>
                         break;
                     case "Orange":
-                        <div>Laranjado</div>
+                <div>Laranjado</div>
                         break;
                     case "Red":
-                        <div>Vermelho</div>
+                <div>Vermelho</div>
                         break;
                     case "Green":
-                        <div>Verde</div>
+                <div>Verde</div>
                         break;
                     case "Purple":
-                        <div>Roxo</div>
+                <div>Roxo</div>
                         break;
                 }
             </td>
