@@ -25,21 +25,22 @@ namespace CEMIG.MapadoSite.Repositories.Repository
         {
             using (IDbConnection dbConnection = _connection)
             {
-                string query = @"select ma.usuario as Usuario, 
-                                f.sig_orgao as Orgao,
-                                f.nom_funcionario as NomeUsuario,
-                                f.num_telefone as Telefone,
-                                ma.idmenu as IdMenu, 
-                                ma.infocorreta as InfoCorreta, 
-                                ma.ePaginaRegulatoria as ePaginaRegulatoria, 
-                                ma.PaginaSeraMantida as PaginaSeraMantida,
-                                m.link as Link,
-                                m.cor as Cor,
-                                REPLACE(REPLACE(REPLACE(CAST(ma.justificativa AS CHAR(5000)), CHAR(10), ''), CHAR(13), ''),CHAR(9),'') as Justificativa
-                                from menuavaliacao ma, menu m, tfuncionario f
-                                where m.id = ma.idmenu
-                                and ma.usuario = f.num_matricula
-                                order by ma.usuario";
+                string query = @"select 
+		                                ma.usuario as Usuario, 
+                                        f.sig_orgao as Orgao,
+                                        f.nom_funcionario as NomeUsuario,
+                                        f.num_telefone as Telefone,
+                                        ma.idmenu as IdMenu, 
+                                        ma.infocorreta as InfoCorreta, 
+                                        ma.ePaginaRegulatoria as ePaginaRegulatoria, 
+                                        ma.PaginaSeraMantida as PaginaSeraMantida,
+                                        m.link as Link,
+                                        m.cor as Cor,
+                                        REPLACE(REPLACE(REPLACE(CAST(ma.justificativa AS CHAR(5000)), CHAR(10), ''), CHAR(13), ''),CHAR(9),'') as Justificativa
+                                        from menuavaliacao ma
+		                                inner join menu m on m.Id = ma.IdMenu
+		                                left join tfuncionario f on f.NUM_MATRICULA = ma.Usuario
+                                order by f.nom_funcionario";
 
                 var menu = dbConnection.Query<RelacaoAvaliacoes>(query);
 
