@@ -18,8 +18,14 @@
                     <th width="50%">
                         Sugestão
                     </th>
-                    <th>
+                    <th >
                         Usuário
+                    </th>
+                    <th>
+                        Fone
+                    </th>
+                    <th>
+                        Área
                     </th>
                     <th>
                         Criada em
@@ -31,17 +37,23 @@
                 {
                     foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Observacao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Usuario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataCriacao)
-                            </td>
-                        </tr>
+                <tr>
+                    <td style="word-wrap: break-word; text-align:left">
+                        @Html.DisplayFor(modelItem => item.Observacao)
+                    </td>
+                    <td style="word-wrap: break-word; text-align:left">
+                        @Html.DisplayFor(modelItem => item.NomeUsuario)
+                    </td>
+                    <td style="word-wrap: break-word; text-align:center">
+                        @Html.DisplayFor(modelItem => item.Telefone)
+                    </td>
+                    <td style="word-wrap: break-word; text-align:center">
+                        @Html.DisplayFor(modelItem => item.Orgao)
+                    </td>
+                    <td style="word-wrap: break-word; text-align:center">
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                </tr>
                     }
                 }
                 else

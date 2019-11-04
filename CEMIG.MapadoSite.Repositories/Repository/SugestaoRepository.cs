@@ -40,8 +40,14 @@ namespace CEMIG.MapadoSite.Repositories.Repository
             //TODO: Paging...
             using (IDbConnection dbConnection = _connection)
             {
-                string query = @"SELECT *
-                                FROM [dbo].[Sugestoes] order by id desc";
+                string query = @"SELECT 
+                                f.nom_funcionario as NomeUsuario,
+                                f.num_telefone as Telefone,
+                                f.sig_orgao as Orgao,
+                                su.*
+                                FROM [dbo].[Sugestoes] su
+                                left join tfuncionario f on f.NUM_MATRICULA = su.Usuario
+                                order by f.nom_funcionario";
 
                 var sugestoes = dbConnection.Query<Sugestao>(query);
 

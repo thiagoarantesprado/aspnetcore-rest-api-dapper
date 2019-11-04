@@ -110,9 +110,14 @@ namespace CEMIG.MapadoSite.Repositories.Repository
         {
             using (IDbConnection dbConnection = _connection)
             {
-                string query = @"SELECT *
-                                FROM [dbo].[PaginasAusente]
-                                ORDER BY ID DESC";
+                string query = @"SELECT 
+                                f.nom_funcionario as NomeUsuario,
+                                f.num_telefone as Telefone,
+                                f.sig_orgao as Orgao,
+                                pa.*
+                                FROM [dbo].[PaginasAusente] pa
+                                left join tfuncionario f on f.NUM_MATRICULA = pa.Usuario
+                                order by f.nom_funcionario";
 
                 var menu = dbConnection.Query<PaginaAusente>(query);
 

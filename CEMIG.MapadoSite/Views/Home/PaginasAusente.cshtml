@@ -13,14 +13,20 @@
 <table class="table table-responsive-sm table-bordered table-striped table-sm" style="table-layout: fixed">
     <thead>
         <tr style="color: white; background-color: #005c34">
-            <th width="40%">
+            <th width="30%">
                 @Html.DisplayNameFor(model => model.Link)
             </th>
-            <th width="40%">
+            <th width="35%">
                 Observação
             </th>
             <th>
                 Usuário
+            </th>
+            <th>
+                Fone
+            </th>
+            <th>
+                Área
             </th>
             <th>
                 Data de Criação
@@ -32,20 +38,26 @@
         {
             foreach (var item in Model)
             {
-                <tr>
-                    <td style="word-wrap: break-word;">
-                        <code class="highlighter-rouge"><a href="http://@(item.Link)" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
-                    </td>
-                    <td style="word-wrap: break-word;">
-                        @Html.DisplayFor(modelItem => item.Observacao)
-                    </td>
-                    <td style="word-wrap: break-word;">
-                        @Html.DisplayFor(modelItem => item.Usuario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DataCriacao)
-                    </td>
-                </tr>
+        <tr>
+            <td style="word-wrap: break-word;">
+                <code class="highlighter-rouge"><a href="http://@(item.Link)" target="_blank">@Html.DisplayFor(modelItem => item.Link)</a></code>
+            </td>
+            <td style="word-wrap: break-word;">
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td style="word-wrap: break-word;">
+                @Html.DisplayFor(modelItem => item.NomeUsuario)
+            </td>
+            <td style="word-wrap: break-word; text-align:right">
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td style="word-wrap: break-word; text-align:center">
+                @Html.DisplayFor(modelItem => item.Orgao)
+            </td>
+            <td style="word-wrap: break-word; text-align:center">
+                @Html.DisplayFor(modelItem => item.DataCriacao)
+            </td>
+        </tr>
             }
         }
         else
