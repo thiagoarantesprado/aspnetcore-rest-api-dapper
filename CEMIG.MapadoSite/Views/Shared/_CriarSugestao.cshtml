@@ -8,7 +8,7 @@
             <div class="form-group row">
                 <label class="col-md-12 col-form-label" asp-for="Observacao" for="Justificativa">Apresente sua observação.</label>
                 <div class="col-md-12">
-                    <textarea required oninvalid="this.setCustomValidity('Gentileza incluir suas sugestões.')" oninput="this.setCustomValidity('')" id="textarea-input" maxlength="500" asp-for="Observacao" name="Observacao" rows="9" class="form-control" placeholder="Informe suas sugestões..."></textarea>
+                    <textarea required oninvalid="this.setCustomValidity('Gentileza incluir suas sugestões.')" oninput="this.setCustomValidity('')" id="textarea-input" maxlength="5000" asp-for="Observacao" name="Observacao" rows="9" class="form-control" placeholder="Informe suas sugestões..."></textarea>
                 </div>
                 <span asp-validation-for="Observacao" class="text-danger">
 

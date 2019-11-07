@@ -40,7 +40,7 @@ namespace CEMIG.MapadoSite.Repositories.Repository
                                         from menuavaliacao ma
 		                                inner join menu m on m.Id = ma.IdMenu
 		                                left join tfuncionario f on f.NUM_MATRICULA = ma.Usuario
-                                order by f.nom_funcionario";
+                                order by ma.idmenu, f.nom_funcionario";
 
                 var menu = dbConnection.Query<RelacaoAvaliacoes>(query);
 
